@@ -1,5 +1,8 @@
 version: '2'
 
+# TODO consider passing $XAUTHORITY
+# https://stackoverflow.com/a/25280523/5894777
+
 services:
   browser:
     build: .
