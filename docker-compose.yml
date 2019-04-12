@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  browser:
+    build: .
+    image: fphammerle/firefox-x11
+    environment:
+    - DISPLAY
+    volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    security_opt: [no-new-privileges]
+
+# https://docs.docker.com/compose/compose-file/compose-file-v2/
