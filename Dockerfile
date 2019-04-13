@@ -9,11 +9,11 @@ RUN apt-get update \
     && curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc \
         | apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - \
     && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ bionic main" \
-        > /etc/apt/sources.list.d/brave-browser-release.list
+        > /etc/apt/sources.list.d/brave-browser-release.list \
+    && useradd --create-home browser
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends brave-keyring brave-browser
 
-RUN useradd --create-home browser
 USER browser
 CMD ["brave-browser", "--no-sandbox"]
