@@ -6,7 +6,7 @@ version: '2'
 services:
   browser:
     build: .
-    image: fphammerle/firefox-x11
+    image: fphammerle/brave-browser-x11
     environment:
     - DISPLAY
     volumes:
