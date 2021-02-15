@@ -16,7 +16,10 @@ ARG BRAVE_BROWSER_PACKAGE_VERSION=1.20.103
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
         brave-browser=$BRAVE_BROWSER_PACKAGE_VERSION \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && find / -xdev -type f -perm /u+s -exec chmod -c u-s {} \; \
+    && find / -xdev -type f -perm /g+s -exec chmod -c g-s {} \;
 
 USER browser
+#CMD ["brave-browser"] podman
 CMD ["brave-browser", "--no-sandbox"]
