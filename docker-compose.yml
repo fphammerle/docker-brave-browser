@@ -6,7 +6,7 @@ version: '2'
 services:
   browser:
     build: .
-    image: fphammerle/brave-browser-x11
+    image: docker.io/fphammerle/brave-browser-x11
     environment:
     - DISPLAY
     volumes:

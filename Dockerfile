@@ -23,3 +23,9 @@ RUN apt-get update \
 USER browser
 #CMD ["brave-browser"] podman
 CMD ["brave-browser", "--no-sandbox"]
+
+# https://github.com/opencontainers/image-spec/blob/v1.0.1/annotations.md
+ARG REVISION=
+LABEL org.opencontainers.image.title="brave browser" \
+    org.opencontainers.image.source="https://github.com/fphammerle/docker-brave-browser" \
+    org.opencontainers.image.revision="$REVISION"
