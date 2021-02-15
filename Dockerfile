@@ -12,8 +12,8 @@ RUN apt-get update \
     && useradd --create-home browser
 
 RUN apt-get update \
-    && apt-get install --yes --no-install-recommends brave-keyring brave-browser \
+    && apt-get install --yes --no-install-recommends brave-browser \
     && rm -rf /var/lib/apt/lists/*
 
 USER browser
-CMD ["brave-browser", "--no-sandbox"]
+CMD ["brave-browser"]
