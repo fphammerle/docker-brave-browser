@@ -1,19 +1,21 @@
-FROM ubuntu:18.04
+FROM docker.io/debian:10.8-slim
 
-# https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux
+# https://brave.com/linux/#release-channel-installation
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
         ca-certificates \
         curl \
-        gnupg2 \
+        gnupg \
+    && rm -rf /var/lib/apt/lists/* \
     && curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc \
         | apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - \
-    && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ bionic main" \
+    && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" \
         > /etc/apt/sources.list.d/brave-browser-release.list \
     && useradd --create-home browser
 
 RUN apt-get update \
-    && apt-get install --yes --no-install-recommends brave-keyring brave-browser
+    && apt-get install --yes --no-install-recommends brave-keyring brave-browser \
+    && rm -rf /var/lib/apt/lists/*
 
 USER browser
 CMD ["brave-browser", "--no-sandbox"]
