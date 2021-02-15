@@ -4,11 +4,9 @@ FROM docker.io/debian:10.8-slim
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
         ca-certificates \
-        curl \
         gnupg \
+    && apt-key adv --keyserver pool.sks-keyservers.net --recv-keys D8BAD4DE7EE17AF52A834B2D0BB75829C2D4E821 \
     && rm -rf /var/lib/apt/lists/* \
-    && curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc \
-        | apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - \
     && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" \
         > /etc/apt/sources.list.d/brave-browser-release.list \
     && useradd --create-home browser
