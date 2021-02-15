@@ -21,6 +21,7 @@ RUN apt-get update \
     && find / -xdev -type f -perm /g+s -exec chmod -c g-s {} \;
 
 USER browser
+VOLUME /home/browser
 #CMD ["brave-browser"] podman
 CMD ["brave-browser", "--no-sandbox"]
 

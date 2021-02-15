@@ -5,14 +5,20 @@ version: '2'
 # - pass $XAUTHORITY (insecure, https://stackoverflow.com/a/25280523/5894777)
 # - xhost + (horribly insecure)
 
+volumes:
+  home:
+
 services:
   browser:
     build: .
-    image: docker.io/fphammerle/brave-browser-x11
+    image: docker.io/fphammerle/brave-browser
+    container_name: brave_browser
     environment:
     - DISPLAY
     volumes:
     - /tmp/.X11-unix:/tmp/.X11-unix
+    - home:/home/browser
+    cap_drop: [ALL]
     security_opt: [no-new-privileges]
 
 # https://docs.docker.com/compose/compose-file/compose-file-v2/
