@@ -1,4 +1,4 @@
-version: '2'
+version: '2.3' # volumes long syntax
 
 # options to share host's x-server:
 # - Xephyr
@@ -15,9 +15,21 @@ services:
     container_name: brave_browser
     environment:
     - DISPLAY
+    read_only: true
     volumes:
-    - /tmp/.X11-unix:/tmp/.X11-unix
-    - home:/home/browser
+    - type: bind
+      source: /tmp/.X11-unix
+      target: /tmp/.X11-unix
+    - type: volume
+      source: home
+      target: /home/browser
+    - type: tmpfs
+      # > ERROR:chrome_browser_main.cc(1254)] Failed to create a ProcessSingleton for your profile directory. [...]
+      target: /tmp
+      tmpfs:
+        # nosuid,nodev,noexec added by default
+        mode: '1777'
+        size: 4k
     cap_drop: [ALL]
     security_opt: [no-new-privileges]
 
