@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - added `libgl1` to fix some browser crashes
   and to reduce ubiquitous "Aw, Snap!" errors ("Error code: 6")
+- added `--disable-dev-shm-usage` flag to fix some more "Aw, Snap!" errors and video playback
+  (apparently by resolving "ERROR:broker_posix.cc(46)] Received unexpected number of handles")
 
 ## [0.1.0] - 2021-02-15
 ### Added
