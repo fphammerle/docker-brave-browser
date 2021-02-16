@@ -30,6 +30,13 @@ services:
         # nosuid,nodev,noexec added by default
         mode: '1777'
         size: 4k
+    # fix some "Aw, Snap!" errors (including video playback)
+    # > ERROR:broker_posix.cc(46)] Received unexpected number of handles
+    # default:
+    # > $ sudo docker exec brave_browser mount | grep /dev/shm
+    # > shm on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,size=65536k)
+    # https://github.com/puppeteer/puppeteer/blob/v7.1.0/docs/troubleshooting.md#tips
+    shm_size: 1GB
     cap_drop: [ALL]
     security_opt: [no-new-privileges]
 

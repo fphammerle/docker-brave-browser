@@ -35,7 +35,7 @@ VOLUME /home/browser
 # apparently by resolving:
 # > ERROR:broker_posix.cc(46)] Received unexpected number of handles
 # https://github.com/WPO-Foundation/wptagent/issues/327#issuecomment-614086842
-CMD ["brave-browser", "--no-sandbox", "--disable-dev-shm-usage"]
+CMD ["brave-browser", "--no-sandbox"]
 
 # https://github.com/opencontainers/image-spec/blob/v1.0.1/annotations.md
 ARG REVISION=
