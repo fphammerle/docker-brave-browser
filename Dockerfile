@@ -37,6 +37,9 @@ VOLUME /home/browser
 # https://github.com/WPO-Foundation/wptagent/issues/327#issuecomment-614086842
 CMD ["brave-browser", "--no-sandbox"]
 
+# mounts tmpfs at /tmp implicitly
+LABEL podman-run-x11="podman run --name brave_browser --rm --init -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v brave_browser_home:/home/browser --shm-size 1GB --read-only --cap-drop ALL --security-opt no-new-privileges \${IMAGE}"
+
 # https://github.com/opencontainers/image-spec/blob/v1.0.1/annotations.md
 ARG REVISION=
 LABEL org.opencontainers.image.title="brave browser" \
