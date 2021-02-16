@@ -13,6 +13,7 @@ services:
     build: .
     image: docker.io/fphammerle/brave-browser
     container_name: brave_browser
+    init: true
     environment:
     - DISPLAY
     read_only: true

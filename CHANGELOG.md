@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and to reduce ubiquitous "Aw, Snap!" errors ("Error code: 6")
 - docker-compose: increase size of `/dev/shm` to fix some "Aw, Snap!" errors and video playback
   ("ERROR:broker_posix.cc(46)] Received unexpected number of handles")
+- docker-compose: run "init" (e.g. `tini`) as pid `1` to safely kill child processes
 
 ## [0.1.0] - 2021-02-15
 ### Added
