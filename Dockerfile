@@ -1,10 +1,19 @@
 FROM docker.io/debian:10.8-slim
 
+# manually installing libgl1 to fix some browser crashes
+# and to reduce ubiquitous "Aw, Snap!" errors ("Error code: 6"):
+# > [[...]:angle_platform_impl.cc(43)] Display.cpp:833 (initialize): ANGLE Display::initialize error 12289: Could not dlopen libGL.so.1: [...]
+# > [[...]:gl_surface_egl.cc(773)] EGL Driver message (Critical) eglInitialize: Could not dlopen libGL.so.1: [...]
+# > [[...]:gl_surface_egl.cc(1322)] eglInitialize OpenGL failed with error EGL_NOT_INITIALIZED, trying next display type
+# > [[...]:gl_initializer_linux_x11.cc(160)] GLSurfaceEGL::InitializeOneOff failed.
+# > [[...]:viz_main_impl.cc(150)] Exiting GPU process due to errors during initialization
+
 # https://brave.com/linux/#release-channel-installation
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
         ca-certificates \
         gnupg \
+        libgl1 \
     && apt-key adv --keyserver pool.sks-keyservers.net \
         --recv-keys D8BAD4DE7EE17AF52A834B2D0BB75829C2D4E821 \
     && rm -rf /var/lib/apt/lists/* \
