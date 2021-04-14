@@ -12,6 +12,7 @@ FROM docker.io/debian:10.9-slim
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
         ca-certificates \
+        fonts-tlwg-waree-ttf \
         gnupg \
         libgl1 \
     && apt-key adv --keyserver pool.sks-keyservers.net \
