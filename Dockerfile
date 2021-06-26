@@ -15,7 +15,7 @@ RUN apt-get update \
         fonts-tlwg-loma-ttf \
         gnupg \
         libgl1 \
-    && apt-key adv --keyserver pgp.mit.edu \
+    && apt-key adv --keyserver keyserver.ubuntu.com \
         --recv-keys D8BAD4DE7EE17AF52A834B2D0BB75829C2D4E821 \
     && rm -rf /var/lib/apt/lists/* \
     && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" \
