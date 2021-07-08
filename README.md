@@ -33,7 +33,8 @@ Alternative: Adapt the access rights of your main X server<br>
 $ podman run --name brave_browser --rm --init \
     -e DISPLAY=:[DISPLAY_NUMBER] -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v brave_browser_home:/home/browser --shm-size 1GB \
-    --read-only --cap-drop ALL --security-opt no-new-privileges \
+    --read-only --tmpfs /tmp:size=8k \
+    --cap-drop ALL --security-opt no-new-privileges \
     [IMAGE_NAME]
 ```
 
