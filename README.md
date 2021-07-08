@@ -19,7 +19,7 @@ Choose some arbitrary `[DISPLAY_NUMBER]` and run:
 ```sh
 $ Xephyr -resizeable :[DISPLAY_NUMBER]
 # for example:
-$ Xepyhr -resizeable :1
+$ Xephyr -resizeable :1
 ```
 
 Alternative: Adapt the access rights of your main X server<br>
