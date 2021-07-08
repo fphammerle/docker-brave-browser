@@ -2,6 +2,8 @@
 
 ## Setup
 
+In the following instructions, `podman` may be replaced with `sudo docker`.
+
 ### Step 1: Select or Build Image
 
 Perform **one** of the following steps:
@@ -34,3 +36,5 @@ $ podman run --name brave_browser --rm --init \
     --read-only --cap-drop ALL --security-opt no-new-privileges \
     [IMAGE_NAME]
 ```
+
+Add `--tmpfs /tmp:size=8k` when using `docker`.
