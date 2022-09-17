@@ -22,7 +22,7 @@ RUN apt-get update \
         > /etc/apt/sources.list.d/brave-browser-release.list \
     && useradd --create-home browser
 
-ARG BRAVE_BROWSER_PACKAGE_VERSION=1.41.96
+ARG BRAVE_BROWSER_PACKAGE_VERSION=1.43.93
 RUN apt-get update \
     && apt-cache policy brave-browser \
     && apt-get install --yes --no-install-recommends \
