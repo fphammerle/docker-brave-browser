@@ -19,7 +19,7 @@ jobs:
     # > will be done directly by buildkit. [...]
     # > any file mutation in the steps that precede [...] will be ignored
     # https://github.com/marketplace/actions/build-and-push-docker-images
-    - uses: docker/build-push-action@v4.0.0
+    - uses: docker/build-push-action@v4.1.1
       with:
         # > Brave is only supported on 64-bit AMD/Intel architectures (amd64 / x86_64).
         # https://brave.com/linux/#linux
