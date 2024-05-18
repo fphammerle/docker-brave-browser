@@ -16,7 +16,7 @@ RUN apt-get update \
         gnupg \
         libgl1 \
     && apt-key adv --keyserver keyserver.ubuntu.com \
-        --recv-keys D8BAD4DE7EE17AF52A834B2D0BB75829C2D4E821 \
+        --recv-keys DBF1A116C220B8C7164F98230686B78420038257 \
     && rm -rf /var/lib/apt/lists/* \
     && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" \
         > /etc/apt/sources.list.d/brave-browser-release.list \
