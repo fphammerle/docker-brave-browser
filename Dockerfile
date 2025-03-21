@@ -1,4 +1,4 @@
-FROM docker.io/debian:12.9-slim
+FROM docker.io/debian:12.10-slim
 
 # manually installing libgl1 to fix some browser crashes
 # and to reduce ubiquitous "Aw, Snap!" errors ("Error code: 6"):
